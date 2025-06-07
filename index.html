@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinder Montessori | Servicios Educativos</title>
+    <style>
+        :root {
+            --ecru: #D8B671ff;
+            --tekhelet: #413674ff;
+            --columbia-blue: #B8D7ECff;
+            --saffron: #F4BE18ff;
+            --white: #FEFEFEff;
+            --white-2: #FCFCFBff;
+            --snow: #F4EDF1ff;
+            --space-cadet: #3D365Fff;
+            --ultra-violet: #5C5480ff;
+            --pomp-and-power: #766E96ff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--space-cadet);
+            margin: 0;
+            padding: 0;
+            background-color: var(--white-2);
+        }
+        
+        header {
+            background-color: var(--tekhelet);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--saffron);
+        }
+        
+        nav {
+            background-color: var(--ultra-violet);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--ecru);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--ecru);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(65, 54, 116, 0.85), rgba(65, 54, 116, 0.9)), url('https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--tekhelet);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--saffron);
+            margin: 0.5rem auto 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--snow);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 1.8rem;
+        }
+        
+        .service-content h3 {
+            color: var(--tekhelet);
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-content p {
+            color: var(--pomp-and-power);
+            margin-bottom: 0;
+        }
+        
+        .cta-section {
+            background-color: var(--tekhelet);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--saffron);
+            color: var(--space-cadet);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--ecru);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--ultra-violet);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--pomp-and-power);
+        }
+        
+        footer {
+            background-color: var(--space-cadet);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--saffron);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--columbia-blue);
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--ecru);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            background: var(--ultra-violet);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--saffron);
+            color: var(--space-cadet);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--pomp-and-power);
+            color: var(--columbia-blue);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Kinder <span>Montessori</span></div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h1>Nuestros Servicios Educativos</h1>
+        <p>En un mundo en constante evolución, la educación es clave para el desarrollo de nuestros hijos. En el Kinder Montessori nos enfocamos en el crecimiento holístico de cada niño.</p>
+        <a href="#servicios" class="btn">Conoce más</a>
+    </section>
+    
+    <section id="servicios" class="container">
+        <h2 class="section-title">Servicios que Ofrecemos</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Ambiente Montessori">
+                </div>
+                <div class="service-content">
+                    <h3>Ambiente Montessori Envolvente</h3>
+                    <p>Abrazamos la filosofía de María Montessori, con aulas diseñadas para ser ambientes de aprendizaje atractivos y funcionales donde los niños pueden elegir y dirigir su propio proceso de aprendizaje, fomentando independencia, autoestima y amor por el conocimiento.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Educadores Montessori">
+                </div>
+                <div class="service-content">
+                    <h3>Educadores Altamente Calificados</h3>
+                    <p>Nuestro equipo está altamente capacitado en la metodología Montessori y comprometido con el bienestar de cada niño. Guían y apoyan a los estudiantes en su viaje de descubrimiento, adaptando actividades y ritmo de aprendizaje a necesidades individuales.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Programa académico">
+                </div>
+                <div class="service-content">
+                    <h3>Programa Académico Integral</h3>
+                    <p>Nuestro programa abarca todas las áreas del desarrollo: matemáticas, lenguaje, ciencias, cultura y más. Con un enfoque interdisciplinario que fomenta creatividad y pensamiento crítico para un aprendizaje significativo.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Desarrollo socioemocional">
+                </div>
+                <div class="service-content">
+                    <h3>Desarrollo Socioemocional</h3>
+                    <p>Reconocemos la importancia del desarrollo emocional. A través de actividades diseñadas, fomentamos empatía, resolución de conflictos y comunicación, ayudando a los niños a desarrollar habilidades que les serán útiles toda su vida.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Ambiente multicultural">
+                </div>
+                <div class="service-content">
+                    <h3>Ambientes Multiculturales</h3>
+                    <p>Celebramos la diversidad y fomentamos un ambiente multicultural donde los niños aprenden sobre diferentes culturas y valores, promoviendo comprensión global y respeto por la diversidad desde temprana edad.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Espacios al aire libre">
+                </div>
+                <div class="service-content">
+                    <h3>Espacios de Juego al Aire Libre</h3>
+                    <p>Contamos con amplias áreas al aire libre donde los niños pueden jugar y explorar la naturaleza. Valoramos el juego exterior como parte fundamental del aprendizaje infantil y desarrollo físico.</p>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="" alt="Cuidado extendido">
+                </div>
+                <div class="service-content">
+                    <h3>Servicios de Cuidado Extendido</h3>
+                    <p>Entendemos las necesidades de las familias modernas, por lo que ofrecemos horario extendido antes y después del horario escolar, brindando flexibilidad para los padres que lo requieren.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para formar parte de nuestra comunidad Montessori?</h2>
+            <p>Estamos comprometidos con brindar una educación de calidad que despierte el amor por el aprendizaje, fomente la independencia y nutra la creatividad de cada niño.</p>
+            <a href="contacto.html" class="btn btn-primary">Contáctanos</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kinder Montessori</h3>
+                <p>Educación que inspira, crea y transforma.</p>
+                <p>Desarrollando el potencial único de cada niño.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Educación 123, Col. Aprendizaje</p>
+                <p><i class="fas fa-phone"></i> Tel: 555-123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@kindermontessori.edu</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Horario</h3>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>7:30 am - 6:30 pm</p>
+                <p>Servicio extendido disponible</p>
+                <a href="contacto.html#horarios">Ver horarios detallados</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Kinder Montessori. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
