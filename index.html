@@ -3,458 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinder Montessori | Servicios Educativos</title>
-    <style>
-        :root {
-            --ecru: #D8B671ff;
-            --tekhelet: #413674ff;
-            --columbia-blue: #B8D7ECff;
-            --saffron: #F4BE18ff;
-            --white: #FEFEFEff;
-            --white-2: #FCFCFBff;
-            --snow: #F4EDF1ff;
-            --space-cadet: #3D365Fff;
-            --ultra-violet: #5C5480ff;
-            --pomp-and-power: #766E96ff;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--space-cadet);
-            margin: 0;
-            padding: 0;
-            background-color: var(--white-2);
-        }
-        
-        header {
-            background-color: var(--tekhelet);
-            color: var(--white);
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--saffron);
-        }
-        
-        nav {
-            background-color: var(--ultra-violet);
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        nav li {
-            margin: 0 1.5rem;
-        }
-        
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--ecru);
-        }
-        
-        nav a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--ecru);
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s;
-        }
-        
-        nav a:hover:after {
-            width: 100%;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(65, 54, 116, 0.85), rgba(65, 54, 116, 0.9)), url('https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            color: var(--tekhelet);
-            margin-bottom: 3rem;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--saffron);
-            margin: 0.5rem auto 0;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        
-        .service-card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--snow);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        
-        .service-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .service-card:hover .service-img img {
-            transform: scale(1.05);
-        }
-        
-        .service-content {
-            padding: 1.8rem;
-        }
-        
-        .service-content h3 {
-            color: var(--tekhelet);
-            margin-top: 0;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .service-content p {
-            color: var(--pomp-and-power);
-            margin-bottom: 0;
-        }
-        
-        .cta-section {
-            background-color: var(--tekhelet);
-            color: var(--white);
-            text-align: center;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80') center/cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--saffron);
-            color: var(--space-cadet);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .btn:hover {
-            background-color: var(--ecru);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-        }
-        
-        .btn-primary {
-            background-color: var(--ultra-violet);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--pomp-and-power);
-        }
-        
-        footer {
-            background-color: var(--space-cadet);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 2rem;
-            text-align: left;
-            padding: 0 1rem;
-        }
-        
-        .footer-section h3 {
-            color: var(--saffron);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section p, .footer-section a {
-            color: var(--columbia-blue);
-            margin-bottom: 0.8rem;
-            display: block;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: var(--ecru);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-icons a {
-            color: var(--white);
-            background: var(--ultra-violet);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background: var(--saffron);
-            color: var(--space-cadet);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--pomp-and-power);
-            color: var(--columbia-blue);
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-section {
-                text-align: center;
-            }
-            
-            .social-icons {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Kinder Montessori | Educación que Inspira</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">Kinder <span>Montessori</span></div>
+    <header class="main-header">
+        <div class="header-content container">
+            <div class="logo">
+                <img src="/img/logo.png" alt="Logo Kinder Montessori">
+                Kinder <span>Montessori</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="metodologia.html">Metodología</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
     
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="metodologia.html">Metodología</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-    
-    <section class="hero">
-        <h1>Nuestros Servicios Educativos</h1>
-        <p>En un mundo en constante evolución, la educación es clave para el desarrollo de nuestros hijos. En el Kinder Montessori nos enfocamos en el crecimiento holístico de cada niño.</p>
-        <a href="#servicios" class="btn">Conoce más</a>
+    <section class="hero-full-screen">
+        <div class="hero-content">
+            <h1>Despierta el Potencial de tu Hijo con Montessori</h1>
+            <p>En Kinder Montessori, cultivamos la independencia, la curiosidad y el amor por el aprendizaje en un ambiente preparado para el éxito.</p>
+            <a href="metodologia.html" class="btn btn-primary">Nuestra Filosofía Educativa</a>
+        </div>
     </section>
-    
-    <section id="servicios" class="container">
-        <h2 class="section-title">Servicios que Ofrecemos</h2>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Ambiente Montessori">
-                </div>
-                <div class="service-content">
-                    <h3>Ambiente Montessori Envolvente</h3>
-                    <p>Abrazamos la filosofía de María Montessori, con aulas diseñadas para ser ambientes de aprendizaje atractivos y funcionales donde los niños pueden elegir y dirigir su propio proceso de aprendizaje, fomentando independencia, autoestima y amor por el conocimiento.</p>
-                </div>
+
+    <section id="who-we-are" class="section-block bg-white-2">
+        <div class="container content-grid-2-col">
+            <div class="text-content">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <p>Somos una institución educativa preescolar dedicada a la formación integral de niños bajo la reconocida filosofía de **María Montessori**. Con años de experiencia, nos comprometemos a ofrecer un ambiente de aprendizaje único donde cada niño es respetado como un individuo capaz y curioso.</p>
+                <p>Nuestras aulas son espacios de descubrimiento, equipados con materiales Montessori que invitan a la exploración y al autoaprendizaje. Creemos firmemente en el poder de la observación y la guía personalizada para desbloquear el potencial innato de cada pequeño.</p>
+                <a href="nosotros.html" class="btn btn-secondary">Conoce Nuestra Historia</a>
             </div>
-            
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Educadores Montessori">
-                </div>
-                <div class="service-content">
-                    <h3>Educadores Altamente Calificados</h3>
-                    <p>Nuestro equipo está altamente capacitado en la metodología Montessori y comprometido con el bienestar de cada niño. Guían y apoyan a los estudiantes en su viaje de descubrimiento, adaptando actividades y ritmo de aprendizaje a necesidades individuales.</p>
-                </div>
+            <div class="image-content">
+                <img src="/img/Niños en un ambiente Montessori.png" alt="Niños en un ambiente Montessori">
             </div>
-            
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Programa académico">
+        </div>
+    </section>
+
+    <section id="our-values" class="section-block bg-tekhelet text-white">
+        <div class="container text-center">
+            <h2 class="section-title text-white">Nuestros Valores Fundamentales</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fas fa-child"></i>
+                    <h3>Respeto por el Niño</h3>
+                    <p>Fomentamos la autonomía y valoramos la individualidad de cada estudiante.</p>
                 </div>
-                <div class="service-content">
-                    <h3>Programa Académico Integral</h3>
-                    <p>Nuestro programa abarca todas las áreas del desarrollo: matemáticas, lenguaje, ciencias, cultura y más. Con un enfoque interdisciplinario que fomenta creatividad y pensamiento crítico para un aprendizaje significativo.</p>
+                <div class="value-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Amor por el Aprendizaje</h3>
+                    <p>Despertamos la curiosidad innata y la pasión por el conocimiento.</p>
                 </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Desarrollo socioemocional">
+                <div class="value-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Comunidad y Colaboración</h3>
+                    <p>Construimos un ambiente de apoyo mutuo y trabajo en equipo.</p>
                 </div>
-                <div class="service-content">
-                    <h3>Desarrollo Socioemocional</h3>
-                    <p>Reconocemos la importancia del desarrollo emocional. A través de actividades diseñadas, fomentamos empatía, resolución de conflictos y comunicación, ayudando a los niños a desarrollar habilidades que les serán útiles toda su vida.</p>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Ambiente multicultural">
-                </div>
-                <div class="service-content">
-                    <h3>Ambientes Multiculturales</h3>
-                    <p>Celebramos la diversidad y fomentamos un ambiente multicultural donde los niños aprenden sobre diferentes culturas y valores, promoviendo comprensión global y respeto por la diversidad desde temprana edad.</p>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Espacios al aire libre">
-                </div>
-                <div class="service-content">
-                    <h3>Espacios de Juego al Aire Libre</h3>
-                    <p>Contamos con amplias áreas al aire libre donde los niños pueden jugar y explorar la naturaleza. Valoramos el juego exterior como parte fundamental del aprendizaje infantil y desarrollo físico.</p>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="" alt="Cuidado extendido">
-                </div>
-                <div class="service-content">
-                    <h3>Servicios de Cuidado Extendido</h3>
-                    <p>Entendemos las necesidades de las familias modernas, por lo que ofrecemos horario extendido antes y después del horario escolar, brindando flexibilidad para los padres que lo requieren.</p>
+                <div class="value-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovación y Creatividad</h3>
+                    <p>Estimulamos el pensamiento original y la expresión única.</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <section id="services-preview" class="section-block bg-snow">
+        <div class="container text-center">
+            <h2 class="section-title">Nuestros Programas Educativos</h2>
+            <p class="section-subtitle">Descubre cómo cada aspecto de nuestra educación contribuye al desarrollo integral de tu hijo.</p>
+            <div class="icon-services-grid">
+                <div class="icon-service-item">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Ambiente Preparado</h3>
+                    <p>Espacios didácticos para el autoaprendizaje.</p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Guías Certificadas</h3>
+                    <p>Expertas en metodología Montessori.</p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Currículo Integral</h3>
+                    <p>Desarrollo en todas las áreas del saber.</p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Crecimiento Emocional</h3>
+                    <p>Fomento de empatía y habilidades sociales.</p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Cultura Global</h3>
+                    <p>Exposición a diversas culturas y valores.</p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-tree"></i>
+                    <h3>Juego al Aire Libre</h3>
+                    <p>Conexión con la naturaleza y desarrollo físico.</p>
+                </div>
+                <div class="icon-service-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horario Flexible</h3>
+                    <p>Opciones de cuidado extendido.</p>
+                </div>
+            </div>
+            <a href="servicios.html" class="btn">Ver Todos los Servicios Detallados</a>
+        </div>
+    </section>
+
     <section class="cta-section">
         <div class="cta-content">
-            <h2>¿Listo para formar parte de nuestra comunidad Montessori?</h2>
-            <p>Estamos comprometidos con brindar una educación de calidad que despierte el amor por el aprendizaje, fomente la independencia y nutra la creatividad de cada niño.</p>
-            <a href="contacto.html" class="btn btn-primary">Contáctanos</a>
+            <h2>¿Listo para que tu hijo viva la experiencia Montessori?</h2>
+            <p>Agenda una visita o contáctanos para conocer más sobre nuestro proyecto educativo y cómo podemos acompañar a tu familia.</p>
+            <a href="contacto.html" class="btn btn-cta-secondary">¡Inscríbete Hoy!</a>
         </div>
     </section>
     
@@ -492,5 +167,8 @@
             <p>&copy; 2023 Kinder Montessori. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
